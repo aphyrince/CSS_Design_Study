@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+        padding: 100px;
+      }
+      .box {
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        border-radius: 12px;
+        /* border-image 를 사용하면 border-radius가 적용이 안됨. */
+        border: 4px solid white;
+
+        border-image: linear-gradient(45deg, cyan, #00ff62) 1;
+      }
+      .box2 {
+        margin: auto;
+        margin-top: 100px;
+        width: 200px;
+        height: 200px;
+        background:
+          linear-gradient(black, black) padding-box,
+          linear-gradient(45deg, cyan, yellow, red) border-box;
+        background-size: 200%;
+        border-radius: 50em;
+        border: 4px solid transparent;
+        animation: bg-move 3s infinite alternate;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+      @keyframes bg-move {
+        0% {
+          background-position: 0% 0%;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box2">hello</div>
+  </body>
+</html>
