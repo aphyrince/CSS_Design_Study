@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --card-width: 200px;
+        --card-height: 250px;
+        --card-radius: 14px;
+        --card-border: 5px;
+        --blob-size: 100px;
+      }
+      body {
+        /* background-color: black; */
+      }
+      .card {
+        position: relative;
+        top: 200px;
+        left: 200px;
+        width: var(--card-width);
+        height: var(--card-height);
+        border-radius: var(--card-radius);
+        z-index: 100;
+        overflow: hidden;
+        box-shadow:
+          20px 20px 60px #bebebe,
+          -20px -20px 60px #ffffff;
+      }
+      .bg {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: calc(var(--card-width) - 2 * var(--card-border));
+        height: calc(var(--card-height) - 2 * var(--card-border));
+        border-radius: 10px;
+        background-color: rgba(255 255 255);
+        z-index: 2;
+        backdrop-filter: blur(24px);
+        overflow: hidden;
+        /* outline: 2px solid white; */
+      }
+
+      .blob {
+        position: absolute;
+        z-index: 1;
+        width: var(--blob-size);
+        height: var(--blob-size);
+        border-radius: 50%;
+        background-color: #ff0000;
+        filter: blur(12px);
+        opacity: 1;
+        top: calc(-1 * var(--blob-size) / 2);
+        left: calc(-1 * var(--blob-size) / 2);
+        animation: blob-bounce 5s infinite ease;
+      }
+
+      @keyframes blob-bounce {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(var(--card-width));
+        }
+        50% {
+          transform: translate(var(--card-width), var(--card-height));
+        }
+        75% {
+          transform: translate(0, var(--card-height));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="bg"></div>
+      <div class="blob"></div>
+    </div>
+  </body>
+</html>
