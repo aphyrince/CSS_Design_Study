@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: whitesmoke;
+      }
+
+      .container {
+        border: solid 1px rgb(140, 140, 140);
+        padding: 20px;
+        border-radius: 20px;
+        background-color: white;
+
+        .heading {
+          font-size: 1.3rem;
+          margin-bottom: 20px;
+          font-weight: bolder;
+        }
+      }
+
+      .form {
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .form .btn-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          border-radius: 10px;
+          border: solid 1px #1034aa;
+          background: linear-gradient(135deg, #0034de, #006eff);
+          color: white;
+          font-weight: bolder;
+          transition: all 0.2s ease;
+        }
+      }
+
+      .form .input-field {
+        position: relative;
+
+        label {
+          position: absolute;
+          color: grey;
+          /* pointer-events: none; */
+          background-color: transparent;
+          left: 15px;
+          transform: translateY(0.6rem);
+          transition: all 0.3s ease;
+        }
+
+        input {
+          padding: 10px 15px;
+          font-size: 1rem;
+          border-radius: 8px;
+          border: solid 1px grey;
+          letter-spacing: 1px;
+          width: 100%;
+
+          &:focus,
+          &:valid {
+            outline: none;
+            border: solid 1px #0034de;
+
+            & ~ label {
+              transform: translateY(-51%) translateX(-10px) scale(0.8);
+              background-color: white;
+              padding: 0px 5px;
+              color: #0034de;
+              letter-spacing: 1px;
+              border: none;
+              border-radius: 100px;
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading">SignIn to your account</div>
+      <form class="form" action="">
+        <div class="input-field">
+          <input required="" autocomplete="off" type="text" name="text" id="username" />
+          <label for="username">Full Name</label>
+        </div>
+        <div class="input-field">
+          <input required="" autocomplete="off" type="email" name="email" id="email" />
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field">
+          <input required="" autocomplete="off" type="password" name="password" id="password" />
+          <label for="password">Password</label>
+        </div>
+
+        <div class="btn-container">
+          <button class="btn">Submit</button>
+          <div class="acc-text">
+            New here?
+            <span>Create Account</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
